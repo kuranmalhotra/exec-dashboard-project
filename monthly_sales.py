@@ -10,11 +10,10 @@
 import matplotlib as plot
 import pandas as pds
 import statistics as st
-
 import tkinter
 from tkinter import filedialog
-
 import os
+import datetime as dt
 
 # TODO: write some Python code here to produce the desired functionality...
 
@@ -83,13 +82,9 @@ rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 
 print(rowPrice)
 
+print(line)
 
-
-###
-
-
-# print("-----------------------")
-# print("MONTH: March 2018")
+print("MONTH: " + str(month.dt.strftime("%B")) + " " + str(year))
 
 # print("-----------------------")
 # print("CRUNCHING THE DATA...")
