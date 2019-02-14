@@ -7,40 +7,42 @@
 
 # TODO: import some modules and/or packages here
 
-import matlibplot as plot
+import matplotlib as plot
 import csv
 import statistics as st
+import easygui as eg
 
 # TODO: write some Python code here to produce the desired functionality...
 
 # adapted from: csv-mgmt/write_teams.py
 
-csv_file_path = "" # a relative filepath
+csv_file_path = eg.fileopenbox(default="*", filetypes="*")
+print(csv_file_path)
 
-with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
-    writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
-    writer.writeheader() # uses fieldnames set above
-    writer.writerow({"city": "New York", "name": "Yankees"})
-    writer.writerow({"city": "New York", "name": "Mets"})
-    writer.writerow({"city": "Boston", "name": "Red Sox"})
-    writer.writerow({"city": "New Haven", "name": "Ravens"})
+# with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+#     writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
+#     writer.writeheader() # uses fieldnames set above
+#     writer.writerow({"city": "New York", "name": "Yankees"})
+#     writer.writerow({"city": "New York", "name": "Mets"})
+#     writer.writerow({"city": "Boston", "name": "Red Sox"})
+#     writer.writerow({"city": "New Haven", "name": "Ravens"})
 
 
 
-print("-----------------------")
-print("MONTH: March 2018")
+# print("-----------------------")
+# print("MONTH: March 2018")
 
-print("-----------------------")
-print("CRUNCHING THE DATA...")
+# print("-----------------------")
+# print("CRUNCHING THE DATA...")
 
-print("-----------------------")
-print("TOTAL MONTHLY SALES: $12,000.71")
+# print("-----------------------")
+# print("TOTAL MONTHLY SALES: $12,000.71")
 
-print("-----------------------")
-print("TOP SELLING PRODUCTS:")
-print("  1) Button-Down Shirt: $6,960.35")
-print("  2) Super Soft Hoodie: $1,875.00")
-print("  3) etc.")
+# print("-----------------------")
+# print("TOP SELLING PRODUCTS:")
+# print("  1) Button-Down Shirt: $6,960.35")
+# print("  2) Super Soft Hoodie: $1,875.00")
+# print("  3) etc.")
 
-print("-----------------------")
-print("VISUALIZING THE DATA...")
+# print("-----------------------")
+# print("VISUALIZING THE DATA...")
