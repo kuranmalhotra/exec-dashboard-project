@@ -50,8 +50,8 @@ print("Welcome to the Executive Dashboard. Please follow the prompts.")
 getfile()
 print(filename.upper())
 f = list(filename.upper())
-year = f[7] + f[8] + f[9] + f[10]
-print(year)
+year = f[6] + f[7] + f[8] + f[9]
+print(int(year))
 
 print(line)
 
