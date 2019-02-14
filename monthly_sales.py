@@ -20,6 +20,7 @@ from tkinter import filedialog
 ### AND ALSO FROM https://docs.python.org/3/library/tkinter.html#file-handlers
 
 csv_file_path = ""
+line = "=" * 50
 
 def getfile():
 
@@ -37,7 +38,7 @@ def getfile():
 	    getfile() #<--Honestly shocked that I can recursively call the function, that's pretty cool
 
 # Introduction:
-
+print(line)
 print("Welcome to the Executive Dashboard. Please follow the prompts.")
 
 Year = input("Choose which year you'd like to analyze (YYYY): ")
@@ -45,7 +46,7 @@ Month = input("Choose which month you'd like to analyze (MM): ")
 
 getfile()
 
-# print("-----------------------")
+print(line)
 
 with open(csv_file_path, "r") as csv_file:
     reader = csv.DictReader(csv_file)
