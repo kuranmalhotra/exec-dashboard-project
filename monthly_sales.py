@@ -19,6 +19,7 @@ import os
 ### adapted from: prof-rossetti notes on csv mgmt
 ### THE BELOW CODE CAME FROM THE HELP OF https://stackoverflow.com/questions/41600684/put-file-path-in-global-variable-from-browse-button-with-tkinter
 ### AND ALSO FROM https://docs.python.org/3/library/tkinter.html#file-handlers
+### Matt Gallea helped me pivot from the csv package to the pandas package; it's much more user friendly. 
 
 csv_file_path = ""
 filename = ""
@@ -26,7 +27,7 @@ line = "=" * 50
 
 def getfile():
 
-# Get the file: 
+# Get the filepath: 
 
     tkinter.Tk().withdraw() # Close the root window
     global csv_file_path
@@ -50,6 +51,9 @@ print("Welcome to the Executive Dashboard. Please follow the prompts.")
 
 getfile()
 
+
+# Parse year and month from file name:
+
 f = list(filename.upper())
 year = f[6] + f[7] + f[8] + f[9]
 year = (int(year))
@@ -57,17 +61,23 @@ month = f[10] + f[11]
 month = (int(month))
 print(line)
 
-# Matt Gallea helped me pivot from the csv package to the pandas package; it's much more user friendly. 
+# Read the file into the script:
+
 data = pds.read_csv(csv_file_path)
 
-Products = []
+products = []
 numProducts = 0
+itemPrice
+
+# Create a list of products:
 
 for line in data["product"]:
-	if line not in Products: 
-		Products.append(line)
+	if line not in products: 
+		products.append(line)
 		numProducts = numProducts + 1
 print(Products)
+
+
 
 
 
