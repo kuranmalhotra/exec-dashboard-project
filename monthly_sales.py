@@ -36,18 +36,24 @@ def getfile():
     if response != "TRUE":
 	    getfile() #<--Honestly shocked that I can recursively call the function, that's pretty cool
 
-# 
+# Introduction:
+
+print("Welcome to the Executive Dashboard. Please follow the prompts.")
+
+Year = input("Choose which year you'd like to analyze (YYYY): ")
+Month = input("Choose which month you'd like to analyze (MM): ")
 
 getfile()
 
 # print("-----------------------")
 
-
-with open(csv_file_path, "r") as csv_file: # "r" means "open the file for reading"
-    reader = csv.DictReader(csv_file) # assuming your CSV has headers
-    # reader = csv.reader(csv_file) # if your CSV doesn't have headers
+with open(csv_file_path, "r") as csv_file:
+    reader = csv.DictReader(csv_file)
     for row in reader:
         print(row["date"], row["product"], row["unit price"],row["units sold"],row["sales price"])
+    print(type(reader))
+
+	for row in reader: 
 
 
 
