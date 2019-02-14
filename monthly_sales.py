@@ -8,7 +8,7 @@
 # TODO: import some modules and/or packages here
 
 import matplotlib as plot
-import csv
+import pandas as pds
 import statistics as st
 import tkinter
 from tkinter import filedialog
@@ -41,28 +41,35 @@ def getfile():
     print(line)
     response = input("Is the above filepath for " + filename.upper() + " correct? ('TRUE' or 'FALSE'): ")
     if response != "TRUE":
-	    getfile() #<--Honestly shocked that I can recursively call the function, that's pretty cool
+	    getfile() # <-- Honestly shocked that I can recursively call the function, that's pretty cool
 
 # Introduction:
 print(line)
+print("")
 print("Welcome to the Executive Dashboard. Please follow the prompts.")
 
 getfile()
-print(filename.upper())
+
 f = list(filename.upper())
 year = f[6] + f[7] + f[8] + f[9]
 year = (int(year))
-print(type(year))
-
+month = f[10] + f[11]
+month = (int(month))
 print(line)
 
-# with open(csv_file_path, "r") as csv_file:
-#     reader = csv.DictReader(csv_file)
-#     for row in reader:
-#         print(row["date"], row["product"], row["unit price"],row["units sold"],row["sales price"])
-#     print(type(reader))
+# Matt Gallea helped me pivot from the csv package to the pandas package; it's much more user friendly. 
+data = pds.read_csv(csv_file_path)
 
-# 	for row in reader: 
+Products = []
+numProducts = 0
+
+for line in data["product"]:
+	if line not in Products: 
+		Products.append(line)
+		numProducts = numProducts + 1
+print(Products)
+
+
 
 
 # print("-----------------------")
