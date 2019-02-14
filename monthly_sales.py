@@ -90,6 +90,8 @@ def convert_month():
 	elif month == 12:
 		month_name = "December"
 
+convert_month()
+
 # Read the file into the script:
 
 data = pds.read_csv(csv_file_path)
@@ -99,19 +101,18 @@ numProducts = 0
 
 # Create a list of products:
 
-for line in data["product"]:
-	if line not in products: 
-		products.append(line)
+for instance in data["product"]:
+	if instance not in products: 
+		products.append(instance)
 		numProducts = numProducts + 1
-###
+
+# Gather a list of sales totals:
 
 rowPrice = data.groupby(data["product"]).sum()
 rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 
-print(rowPrice)
+print(instance)
 
-print(line)
-convert_month()
 print("MONTH: " + str(month_name) + " " + str(year))
 
 # print("-----------------------")
