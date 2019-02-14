@@ -51,7 +51,8 @@ getfile()
 print(filename.upper())
 f = list(filename.upper())
 year = f[6] + f[7] + f[8] + f[9]
-print(int(year))
+year = (int(year))
+print(type(year))
 
 print(line)
 
