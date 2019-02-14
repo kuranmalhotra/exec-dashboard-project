@@ -1,8 +1,31 @@
 # monthly_sales.py
 
+# 2019-02-15 
+# Kuran Pran Malhotra
+# OPIM 243-30
+# Attribution: fantastic notes located at https://github.com/prof-rossetti/georgetown-opim-243-201901/tree/e2d64e2d74621f3ff070175954878ba3f1562388/notes
+
 # TODO: import some modules and/or packages here
 
+import matlibplot as plot
+import csv
+import statistics as st
+
 # TODO: write some Python code here to produce the desired functionality...
+
+# adapted from: csv-mgmt/write_teams.py
+
+csv_file_path = "" # a relative filepath
+
+with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+    writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
+    writer.writeheader() # uses fieldnames set above
+    writer.writerow({"city": "New York", "name": "Yankees"})
+    writer.writerow({"city": "New York", "name": "Mets"})
+    writer.writerow({"city": "Boston", "name": "Red Sox"})
+    writer.writerow({"city": "New Haven", "name": "Ravens"})
+
+
 
 print("-----------------------")
 print("MONTH: March 2018")
