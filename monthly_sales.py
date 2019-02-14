@@ -27,8 +27,7 @@ filename = ""
 line = "=" * 50
 
 def getfile():
-
-# Get the filepath: 
+	# Get the filepath and data validation on the file: 
 
     tkinter.Tk().withdraw() # Close the root window
     global csv_file_path
@@ -36,7 +35,7 @@ def getfile():
     csv_file_path = filedialog.askopenfilename()
     filename = os.path.basename(csv_file_path) # <-- TY Stack Exchange!
 
-# Data validation on the file: 
+
 
     print(line)
     print(csv_file_path)
@@ -115,19 +114,17 @@ totalPrice_usd = "{0:,.2f}".format(totalPrice) #<—— Taken from Groceries Ex
 
 print(line)
 
-print("MONTH: " + str(month_name) + " " + str(year))
+print("Month: " + str(month_name) + " " + str(year))
 print(line)
 
-print("CRUNCHING THE DATA...")
+print("Crunching the data...")
 print(line)
+print("")
+print("Total Monthly Sales: $" + str(totalPrice_usd))
+print("")
+print(line)
+print("Top Sellers: ")
 
-print("TOTAL MONTHLY SALES: $" + str(totalPrice_usd))
-
-
-
-
-# print("-----------------------")
-# print("TOP SELLING PRODUCTS:")
 # print("  1) Button-Down Shirt: $6,960.35")
 # print("  2) Super Soft Hoodie: $1,875.00")
 # print("  3) etc.")
