@@ -20,18 +20,19 @@ from tkinter import filedialog
 
 # csv_file_path = eg.fileopenbox(default="*", filetypes="*")
 
+csv_file_path = ""
+
 def getfile():
 
     tkinter.Tk().withdraw() # Close the root window
-    file_path = filedialog.askopenfilename()
-    
+    global csv_file_path
+    csv_file_path = filedialog.askopenfilename()
 
-
+getfile()
 
 print("================")
-# # csv_file_path = str
-csv_file = getfile()
-print(type(csv_file))
+
+print(csv_file_path)
 
 # with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
 #     writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
