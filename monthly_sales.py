@@ -110,6 +110,8 @@ for instance in data["product"]:
 rowPrice = data.groupby(data["product"]).sum()
 rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 totalPrice = rowPrice["sales price"].sum()
+totalPrice_usd = "{0:,.2f}".format(totalPrice) #<—— Taken from Groceries Exercise
+
 
 print(line)
 
@@ -119,23 +121,10 @@ print(line)
 print("CRUNCHING THE DATA...")
 print(line)
 
-print("TOTAL MONTHLY SALES: " + str(totalPrice))
+print("TOTAL MONTHLY SALES: $" + str(totalPrice_usd))
 
-#Part 1 —— Taken from Groceries Exercise
 
-print("--------------")
-print("THERE ARE " + str(len(products)) + " PRODUCTS:")
-print("--------------")
 
-def product_name(p):
-    return p["name"]
-
-products = sorted(products, key=product_name)
-
-for product in products:
-    price_usd = "{0:.2f}".format(product["price"])
-    print(" • " + product["name"] + " ($" + str(price_usd) + ")")
-print()
 
 # print("-----------------------")
 # print("TOP SELLING PRODUCTS:")
