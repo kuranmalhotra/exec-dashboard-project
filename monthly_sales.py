@@ -10,7 +10,6 @@
 import matplotlib as plot
 import csv
 import statistics as st
-# import easygui as eg
 import tkinter
 from tkinter import filedialog
 
@@ -24,15 +23,25 @@ csv_file_path = ""
 
 def getfile():
 
+# Get the file: 
+
     tkinter.Tk().withdraw() # Close the root window
     global csv_file_path
     csv_file_path = filedialog.askopenfilename()
+
+# Data validation on the file: 
+
     print(csv_file_path)
-	response = input("Is the above filepath correct? (TRUE/FALSE")
-	If response ?= "TRUE"
-		getfile()
+    response = input("Is the above filepath correct? (TRUE/FALSE): ")
+    if response != "TRUE":
+	    getfile() #<--Honestly shocked that I can recursively call the function, that's pretty cool
+
+# 
 
 getfile()
+
+# print("-----------------------")
+
 
 with open(csv_file_path, "r") as csv_file: # "r" means "open the file for reading"
     reader = csv.DictReader(csv_file) # assuming your CSV has headers
