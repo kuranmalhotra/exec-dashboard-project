@@ -10,9 +10,14 @@
 import matplotlib as plot
 import pandas as pds
 import statistics as st
+
 import tkinter
 from tkinter import filedialog
+
 import os
+
+import itertools
+from operator import itemgetter
 
 # TODO: write some Python code here to produce the desired functionality...
 
@@ -76,9 +81,6 @@ for line in data["product"]:
 		products.append(line)
 		numProducts = numProducts + 1
 print(Products)
-
-import itertools
-from operator import itemgetter
 
 teams = [
     {"city": "New York", "name": "Yankees"},
