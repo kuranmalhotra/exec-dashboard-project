@@ -11,7 +11,8 @@ import matplotlib as plot
 import csv
 import statistics as st
 # import easygui as eg
-import tkinter as Tk
+import tkinter
+from tkinter import filedialog
 
 # TODO: write some Python code here to produce the desired functionality...
 
@@ -19,9 +20,18 @@ import tkinter as Tk
 
 # csv_file_path = eg.fileopenbox(default="*", filetypes="*")
 
+def getfile():
 
-csv_file_path = Tk.
-print(csv_file_path)
+    tkinter.Tk().withdraw() # Close the root window
+    file_path = filedialog.askopenfilename()
+    
+
+
+
+print("================")
+# # csv_file_path = str
+csv_file = getfile()
+print(type(csv_file))
 
 # with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
 #     writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
