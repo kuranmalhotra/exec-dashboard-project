@@ -60,7 +60,35 @@ year = f[6] + f[7] + f[8] + f[9]
 year = (int(year))
 month = f[10] + f[11]
 month = (int(month))
+month_name = str
 print(line)
+
+def convert_month():
+	global month_name
+	if month == 1:
+		month_name = "January"
+	elif month == 2:
+		month_name = "February"
+	elif month == 3:
+		month_name = "March"
+	elif month == 4:
+		month_name = "April"
+	elif month == 5:
+		month_name = "May"
+	elif month == 6:
+		month_name = "June"
+	elif month == 7:
+		month_name = "July"
+	elif month == 8:
+		month_name = "August"
+	elif month == 9:
+		month_name = "September"
+	elif month == 10:
+		month_name = "October"
+	elif month == 11:
+		month_name = "November"
+	elif month == 12:
+		month_name = "December"
 
 # Read the file into the script:
 
@@ -83,8 +111,8 @@ rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 print(rowPrice)
 
 print(line)
-
-print("MONTH: " + str(month.dt.strftime("%B")) + " " + str(year))
+convert_month()
+print("MONTH: " + str(month_name) + " " + str(year))
 
 # print("-----------------------")
 # print("CRUNCHING THE DATA...")
