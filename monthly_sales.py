@@ -16,9 +16,6 @@ from tkinter import filedialog
 
 import os
 
-import itertools
-from operator import itemgetter
-
 # TODO: write some Python code here to produce the desired functionality...
 
 ### adapted from: prof-rossetti notes on csv mgmt
@@ -79,15 +76,14 @@ for line in data["product"]:
 	if line not in products: 
 		products.append(line)
 		numProducts = numProducts + 1
-print(products)
-
 ###
 
-# sorted_products = sorted(products, key=itemgetter("product")) # sort by some attribute
+rowPrice = data.groupby(data["product"]).sum()
+rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 
-productByPrice = itertools.groupby(data, key=itemgetter("sales price")) # group by the sorted attribute
+print(rowPrice)
 
-print(productByPrice)
+
 
 ###
 
