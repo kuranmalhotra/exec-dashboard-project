@@ -49,9 +49,9 @@ def getfile():
 print(line)
 print("")
 print("Welcome to the Executive Dashboard. Please follow the prompts.")
-
+print("")
+print(line)
 getfile()
-
 
 # Parse year and month from file name:
 
@@ -61,7 +61,6 @@ year = (int(year))
 month = f[10] + f[11]
 month = (int(month))
 month_name = str
-print(line)
 
 def convert_month():
 	global month_name
@@ -110,16 +109,33 @@ for instance in data["product"]:
 
 rowPrice = data.groupby(data["product"]).sum()
 rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
+totalPrice = rowPrice["sales price"].sum()
 
-print(instance)
+print(line)
 
 print("MONTH: " + str(month_name) + " " + str(year))
+print(line)
 
-# print("-----------------------")
-# print("CRUNCHING THE DATA...")
+print("CRUNCHING THE DATA...")
+print(line)
 
-# print("-----------------------")
-# print("TOTAL MONTHLY SALES: $12,000.71")
+print("TOTAL MONTHLY SALES: " + str(totalPrice))
+
+#Part 1 —— Taken from Groceries Exercise
+
+print("--------------")
+print("THERE ARE " + str(len(products)) + " PRODUCTS:")
+print("--------------")
+
+def product_name(p):
+    return p["name"]
+
+products = sorted(products, key=product_name)
+
+for product in products:
+    price_usd = "{0:.2f}".format(product["price"])
+    print(" • " + product["name"] + " ($" + str(price_usd) + ")")
+print()
 
 # print("-----------------------")
 # print("TOP SELLING PRODUCTS:")
