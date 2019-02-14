@@ -16,9 +16,12 @@ from tkinter import filedialog
 
 # TODO: write some Python code here to produce the desired functionality...
 
-# adapted from: csv-mgmt/write_teams.py
+# adapted from: csv-mgmt
 
 # csv_file_path = eg.fileopenbox(default="*", filetypes="*")
+
+### THE BELOW CODE CAME FROM THE HELP OF https://stackoverflow.com/questions/41600684/put-file-path-in-global-variable-from-browse-button-with-tkinter
+### AND ALSO FROM https://docs.python.org/3/library/tkinter.html#file-handlers
 
 csv_file_path = ""
 
@@ -30,18 +33,12 @@ def getfile():
 
 getfile()
 
-print("================")
 
-print(csv_file_path)
-
-# with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
-#     writer = csv.DictWriter(csv_file, fieldnames=["city", "name"])
-#     writer.writeheader() # uses fieldnames set above
-#     writer.writerow({"city": "New York", "name": "Yankees"})
-#     writer.writerow({"city": "New York", "name": "Mets"})
-#     writer.writerow({"city": "Boston", "name": "Red Sox"})
-#     writer.writerow({"city": "New Haven", "name": "Ravens"})
-
+with open(csv_file_path, "r") as csv_file: # "r" means "open the file for reading"
+    reader = csv.DictReader(csv_file) # assuming your CSV has headers
+    # reader = csv.reader(csv_file) # if your CSV doesn't have headers
+    for row in reader:
+        print(row["city"], row["name"])
 
 
 # print("-----------------------")
