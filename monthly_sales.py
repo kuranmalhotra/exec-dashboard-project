@@ -72,7 +72,6 @@ data = pds.read_csv(csv_file_path)
 
 products = []
 numProducts = 0
-itemPrice
 
 # Create a list of products:
 
@@ -80,38 +79,17 @@ for line in data["product"]:
 	if line not in products: 
 		products.append(line)
 		numProducts = numProducts + 1
-print(Products)
+print(products)
 
-teams = [
-    {"city": "New York", "name": "Yankees"},
-    {"city": "New York", "name": "Mets"},
-    {"city": "Boston", "name": "Red Sox"},
-    {"city": "New Haven", "name": "Ravens"}
-]
+###
 
-sorted_teams = sorted(teams, key=itemgetter("city")) # sort by some attribute
+# sorted_products = sorted(products, key=itemgetter("product")) # sort by some attribute
 
-teams_by_city = itertools.groupby(sorted_teams, key=itemgetter("city")) # group by the sorted attribute
-#> <itertools.groupby object at 0x10339dc50>
+productByPrice = itertools.groupby(data, key=itemgetter("sales price")) # group by the sorted attribute
 
-for city, teams in teams_by_city:
-    print("----------------------------")
-    print(city.upper() + ":")
-    for team in teams:
-        print("  + " + team["name"])
+print(productByPrice)
 
-#> ----------------------------
-#> BOSTON:
-#>   + Red Sox
-#> ----------------------------
-#> NEW HAVEN:
-#>   + Ravens
-#> ----------------------------
-#> NEW YORK:
-#>   + Yankees
-#>   + Mets
-
-
+###
 
 
 # print("-----------------------")
