@@ -12,6 +12,7 @@ import csv
 import statistics as st
 import tkinter
 from tkinter import filedialog
+import os
 
 # TODO: write some Python code here to produce the desired functionality...
 
@@ -20,6 +21,7 @@ from tkinter import filedialog
 ### AND ALSO FROM https://docs.python.org/3/library/tkinter.html#file-handlers
 
 csv_file_path = ""
+filename = ""
 line = "=" * 50
 
 def getfile():
@@ -28,12 +30,16 @@ def getfile():
 
     tkinter.Tk().withdraw() # Close the root window
     global csv_file_path
+    global filename
     csv_file_path = filedialog.askopenfilename()
+    filename = os.path.basename(csv_file_path) # <-- TY Stack Exchange!
 
 # Data validation on the file: 
 
+    print(line)
     print(csv_file_path)
-    response = input("Is the above filepath correct? (TRUE/FALSE): ")
+    print(line)
+    response = input("Is the above filepath for " + filename.upper() + " correct? ('TRUE' or 'FALSE'): ")
     if response != "TRUE":
 	    getfile() #<--Honestly shocked that I can recursively call the function, that's pretty cool
 
@@ -41,21 +47,21 @@ def getfile():
 print(line)
 print("Welcome to the Executive Dashboard. Please follow the prompts.")
 
-Year = input("Choose which year you'd like to analyze (YYYY): ")
-Month = input("Choose which month you'd like to analyze (MM): ")
-
 getfile()
+print(filename.upper())
+f = list(filename.upper())
+year = f[7] + f[8] + f[9] + f[10]
+print(year)
 
 print(line)
 
-with open(csv_file_path, "r") as csv_file:
-    reader = csv.DictReader(csv_file)
-    for row in reader:
-        print(row["date"], row["product"], row["unit price"],row["units sold"],row["sales price"])
-    print(type(reader))
+# with open(csv_file_path, "r") as csv_file:
+#     reader = csv.DictReader(csv_file)
+#     for row in reader:
+#         print(row["date"], row["product"], row["unit price"],row["units sold"],row["sales price"])
+#     print(type(reader))
 
-	for row in reader: 
-
+# 	for row in reader: 
 
 
 # print("-----------------------")
