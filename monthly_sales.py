@@ -10,13 +10,17 @@
 import matplotlib as plot
 import csv
 import statistics as st
-import easygui as eg
+# import easygui as eg
+import tkinter as Tk
 
 # TODO: write some Python code here to produce the desired functionality...
 
 # adapted from: csv-mgmt/write_teams.py
 
-csv_file_path = eg.fileopenbox(default="*", filetypes="*")
+# csv_file_path = eg.fileopenbox(default="*", filetypes="*")
+
+
+csv_file_path = Tk.
 print(csv_file_path)
 
 # with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
