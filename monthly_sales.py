@@ -16,10 +16,7 @@ from tkinter import filedialog
 
 # TODO: write some Python code here to produce the desired functionality...
 
-# adapted from: csv-mgmt
-
-# csv_file_path = eg.fileopenbox(default="*", filetypes="*")
-
+### adapted from: prof-rossetti notes on csv mgmt
 ### THE BELOW CODE CAME FROM THE HELP OF https://stackoverflow.com/questions/41600684/put-file-path-in-global-variable-from-browse-button-with-tkinter
 ### AND ALSO FROM https://docs.python.org/3/library/tkinter.html#file-handlers
 
@@ -30,15 +27,19 @@ def getfile():
     tkinter.Tk().withdraw() # Close the root window
     global csv_file_path
     csv_file_path = filedialog.askopenfilename()
+    print(csv_file_path)
+	response = input("Is the above filepath correct? (TRUE/FALSE")
+	If response ?= "TRUE"
+		getfile()
 
 getfile()
-
 
 with open(csv_file_path, "r") as csv_file: # "r" means "open the file for reading"
     reader = csv.DictReader(csv_file) # assuming your CSV has headers
     # reader = csv.reader(csv_file) # if your CSV doesn't have headers
     for row in reader:
-        print(row["city"], row["name"])
+        print(row["date"], row["product"], row["unit price"],row["units sold"],row["sales price"])
+
 
 
 # print("-----------------------")
