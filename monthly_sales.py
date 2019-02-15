@@ -188,7 +188,6 @@ for tick in ax.xaxis.get_major_ticks():
 
 plt.show()
 
-
-
+### Gracias for everything, this was a fun one! 
 
 
