@@ -125,14 +125,11 @@ print("")
 print(line)
 print("Top Sellers: ")
 
-counter = 0 
-# print(products)
-for item in products:
-	pds.to_numeric(rowPrice["sales price"])
-	monthly_sales = rowPrice["sales price"]
-	print(type(monthly_sales))
-	# monthly_sales = "{0:,.2f}".format(monthly_sales)
-# print("    " + str(counter + 1) + ") " + str(monthly_sales))
+number = 0 
+while number < numProducts:
+	price = rowPrice.iloc[number][2]
+	print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
+
 
 
 # print("  1) Button-Down Shirt: $6,960.35")
