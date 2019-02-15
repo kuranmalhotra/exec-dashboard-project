@@ -7,7 +7,7 @@
 
 # TODO: import some modules and/or packages here
 
-import matplotlib as plot
+import matplotlib.pyplot as plt
 import pandas as pds
 import statistics as st
 import tkinter
