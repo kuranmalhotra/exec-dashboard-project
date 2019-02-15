@@ -145,7 +145,7 @@ objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
 
 y_pos = np.arange(len(objects))
 print(y_pos)
-performance = [10,8,6,4,2,1]
+performance = [10,8,6,4,2,1,2]
 print(performance)
  
 plt.barh(y_pos, performance, align='center', alpha=0.5)
