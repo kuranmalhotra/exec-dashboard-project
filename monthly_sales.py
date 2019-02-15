@@ -137,7 +137,9 @@ print(line)
 print("Visualizing the data...")
 print(line)
 
+print(type(products))
 objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
+print(type(objects))
 y_pos = np.arange(len(objects))
 performance = [10,8,6,4,2,1]
  
