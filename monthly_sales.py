@@ -138,13 +138,15 @@ print("Visualizing the data...")
 print(line)
 
 print(type(products))
-objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
-print(type(objects))
-y_pos = np.arange(len(objects))
+products_tuple = tuple(products)
+print(type(products_tuple))
+#objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
+print(type(products_tuple))
+y_pos = np.arange(len(products_tuple))
 performance = [10,8,6,4,2,1]
  
 plt.barh(y_pos, performance, align='center', alpha=0.5)
-plt.yticks(y_pos, objects)
+plt.yticks(y_pos, products_tuple)
 plt.xlabel('Usage')
 plt.title('Programming language usage')
  
