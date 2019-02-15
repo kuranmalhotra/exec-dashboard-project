@@ -131,10 +131,13 @@ while number < numProducts:
 	print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
 	number = number + 1
 
+print(line)
 
-# print("  1) Button-Down Shirt: $6,960.35")
-# print("  2) Super Soft Hoodie: $1,875.00")
-# print("  3) etc.")
-
-# print("-----------------------")
 # print("VISUALIZING THE DATA...")
+
+
+
+
+
+
+
