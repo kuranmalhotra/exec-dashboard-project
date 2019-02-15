@@ -128,7 +128,7 @@ print("Top Sellers: ")
 counter = 0 
 # print(products)
 for item in products:
-	rowPrice["sales price"] = rowPrice["sales price"].astype(int)
+	pds.to_numeric(rowPrice["sales price"])
 	monthly_sales = rowPrice["sales price"]
 	print(type(monthly_sales))
 	# monthly_sales = "{0:,.2f}".format(monthly_sales)
