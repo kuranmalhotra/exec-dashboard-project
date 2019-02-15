@@ -9,6 +9,7 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.ticker as tick
 import numpy as np
 import pandas as pds
 import statistics as st
@@ -139,17 +140,25 @@ print(line)
 
 products_tuple = tuple(products)
 
+number = 0
+dataPrice =[] 
+while number < numProducts:
+	dataPrice.append(rowPrice.iloc[number][2])
+	number = number + 1
+
 y_pos = np.arange(len(products_tuple))
-print(y_pos)
-performance = [10,8,6,4,2,1,2]
-print(performance)
- 
-plt.barh(y_pos, performance, align='center', alpha=0.9)
+
+plt.subplots(1,1, figsize=(120,120))
+plt.barh(y_pos, dataPrice , align='center', alpha=0.9)
 plt.yticks(y_pos, products_tuple, rotation=30)
 plt.ylabel('Products')
 plt.xlabel('Sales')
-plt.title('Sales by product')
- 
+plt.title('Sales by product', fontsize=30)
+
+
+for x, k in enumerate(dataPrice):
+	plt.text(k , x , "   ${0:,.2f}".format(k))
+
 plt.show()
 
 
