@@ -132,8 +132,8 @@ while number < numProducts:
 	number = number + 1
 
 print(line)
-
-# print("VISUALIZING THE DATA...")
+print("Visualizing the data...")
+print(line)
 
 
 
