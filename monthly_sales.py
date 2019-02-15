@@ -9,7 +9,7 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.ticker as tick
+import matplotlib.ticker as ticker
 import numpy as np
 import pandas as pds
 import statistics as st
@@ -149,11 +149,20 @@ while number < numProducts:
 y_pos = np.arange(len(products_tuple))
 
 plt.subplots(1,1, figsize=(120,120))
+
 plt.barh(y_pos, dataPrice , align='center', alpha=0.9)
 plt.yticks(y_pos, products_tuple, rotation=30)
 plt.ylabel('Products')
 plt.xlabel('Sales')
 plt.title('Sales by product', fontsize=30)
+
+formatter = ticker.FormatStrFormatter('$%1.2f')
+plt.yticks.set_major_formatter(formatter)
+
+for tick in ax.yaxis.get_major_ticks():
+    tick.label1On = False
+    tick.label2On = True
+    tick.label2.set_color('green')
 
 
 for x, k in enumerate(dataPrice):
