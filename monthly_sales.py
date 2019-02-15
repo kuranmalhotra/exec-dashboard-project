@@ -37,9 +37,12 @@ def getfile():
     global filename
     csv_file_path = filedialog.askopenfilename()
     filename = os.path.basename(csv_file_path) # <-- TY Stack Exchange!
-
-
-
+    print(csv_file_path)
+    if csv_file_path is "":
+    	print("Hmm...something doesn't seem right. Mind trying again?")
+    	print("")
+    	print(line)
+    	exit()
     print(line)
     print(csv_file_path)
     print(line)
