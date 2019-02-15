@@ -125,6 +125,16 @@ print("")
 print(line)
 print("Top Sellers: ")
 
+counter = 0 
+# print(products)
+for item in products:
+	rowPrice["sales price"] = rowPrice["sales price"].astype(int)
+	monthly_sales = rowPrice["sales price"]
+	print(type(monthly_sales))
+	# monthly_sales = "{0:,.2f}".format(monthly_sales)
+# print("    " + str(counter + 1) + ") " + str(monthly_sales))
+
+
 # print("  1) Button-Down Shirt: $6,960.35")
 # print("  2) Super Soft Hoodie: $1,875.00")
 # print("  3) etc.")
