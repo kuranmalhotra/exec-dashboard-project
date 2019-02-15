@@ -128,6 +128,8 @@ print("")
 print(line)
 print("Top Sellers: ")
 
+# Print the list of top sellers by concatenating the product name and price: 
+
 number = 0 
 while number < numProducts:
 	price = rowPrice.iloc[number][2]
@@ -137,6 +139,8 @@ while number < numProducts:
 print(line)
 print("Visualizing the data...")
 print(line)
+
+# Initialize the data for the chart:
 
 products_tuple = tuple(products)
 
@@ -148,27 +152,39 @@ while number < numProducts:
 
 y_pos = np.arange(len(products_tuple))
 
+# Create the chart:
+
 fig, ax = plt.subplots(1,1, figsize=(120,120))
 
 plt.barh(y_pos, dataPrice , align='center', alpha=0.9)
 plt.yticks(y_pos, products_tuple, rotation=30)
 plt.ylabel('Products')
 plt.xlabel('Sales')
-plt.title('Sales by product', fontsize=30)
+plt.title(str('Top Selling Products: ' + month_name + " " + str(year)), fontsize=30)
 
 ax.plot
+
+
+# Formatting for the numbers:
+
+for x, k in enumerate(dataPrice):
+	plt.text(k , x , "   ${0:,.2f}".format(k))
 
 formatter = ticker.FormatStrFormatter('$%1.2f')
 ax.xaxis.set_major_formatter(formatter)
 
+# Remove the frame please it was interfering with the labels and I got annoyed with it, oops:
+### Special thanks to my amigos at stack overflow for that one: https://stackoverflow.com/questions/14908576/how-to-remove-frame-from-matplotlib-pyplot-figure-vs-matplotlib-figure-frame
+
+for spine in plt.gca().spines.values():
+    spine.set_visible(False)
+
+# Set the label colors to green:
+
 for tick in ax.xaxis.get_major_ticks():
-    # tick.label1On = True
-    # tick.label2On = False
     tick.label.set_color('green')
 
-
-for x, k in enumerate(dataPrice):
-	plt.text(k , x , "   ${0:,.2f}".format(k))
+# Show the final plot:
 
 plt.show()
 
