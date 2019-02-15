@@ -129,7 +129,7 @@ number = 0
 while number < numProducts:
 	price = rowPrice.iloc[number][2]
 	print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
-
+	number = number + 1
 
 
 # print("  1) Button-Down Shirt: $6,960.35")
