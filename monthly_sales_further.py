@@ -46,6 +46,12 @@ def getfile():
     print(line)
     print(csv_file_path)
     print(line)
+    header_list = []
+    headers = pds.read_csv(csv_file_path, header=None, nrows=1)
+    print(headers)
+    for item in headers.iloc[0]:
+    	header_list.append(item)
+    print(header_list)
     response = input("Is the above filepath for " + filename.upper() + " correct? ('TRUE' or 'FALSE'): ")
     if response != "TRUE":
 	    getfile() # <-- Honestly shocked that I can recursively call the function, that's pretty cool
@@ -57,6 +63,8 @@ print("Welcome to the Executive Dashboard. Please follow the prompts.")
 print("")
 print(line)
 getfile()
+
+breakpoint()
 
 # Parse year and month from file name:
 
