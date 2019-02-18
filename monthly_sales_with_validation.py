@@ -50,7 +50,9 @@ def getfile():
     header_list = []
     match_list = ['date', 'product', 'unit price', 'units sold', 'sales price']
 
-    headers = pds.read_csv(csv_file_path, header=None, nrows=1)
+    # Read headers into a list and validate it against a set list
+
+    headers = pds.read_csv(csv_file_path, header=None, nrows=1) 
 
     for item in headers.iloc[0]:
         header_list.append(item)
