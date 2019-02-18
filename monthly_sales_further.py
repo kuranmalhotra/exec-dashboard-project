@@ -71,8 +71,6 @@ print("")
 print(line)
 getfile()
 
-breakpoint()
-
 # Parse year and month from file name:
 
 f = list(filename.upper())
