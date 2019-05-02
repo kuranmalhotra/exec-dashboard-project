@@ -26,3 +26,11 @@ def test_to_usd():
 def test_convert_month():
 	result = convert_month(2)
 	assert result == "February"
+
+def test_parse_year():
+	result = parse_year("2019-04")
+	assert result == "2019"
+
+def test_parse_month():
+	result = parse_month("2019-04")
+	assert result == 4

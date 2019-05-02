@@ -124,7 +124,7 @@ if __name__ == '__main__':
 	# Parse year and month from file name:
 
 	year = parse_year(filename)
-	month = parse_month_num(filename)
+	month = parse_month(filename)
 	month_name = convert_month(month)
 
 
@@ -147,7 +147,7 @@ if __name__ == '__main__':
 	rowPrice = data.groupby(data["product"]).sum()
 	rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
 	totalPrice = rowPrice["sales price"].sum()
-	totalPrice_usd = "{0:,.2f}".format(totalPrice) #<—— Taken from Groceries Exercise
+	totalPrice_usd = to_usd(totalPrice) #<—— Taken from Groceries Exercise
 
 
 	print(line)
@@ -158,7 +158,7 @@ if __name__ == '__main__':
 	print("Crunching the data...")
 	print(line)
 	print("")
-	print("Total Monthly Sales: $" + str(totalPrice_usd))
+	print("Total Monthly Sales: " + str(totalPrice_usd))
 	print("")
 	print(line)
 	print("Top Sellers: ")
@@ -168,7 +168,7 @@ if __name__ == '__main__':
 	number = 0 
 	while number < numProducts:
 		price = rowPrice.iloc[number][2]
-		print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
+		print(str(number + 1) + ") " + str(rowPrice.index[number]) + " " + to_usd(price))
 		number = number + 1
 
 	print(line)
