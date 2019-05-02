@@ -29,7 +29,7 @@ def test_convert_month():
 
 def test_parse_year():
 	result = parse_year("sales-201904")
-	assert result == "2019"
+	assert result == 2019
 
 def test_parse_month():
 	result = parse_month("sales-201904")
