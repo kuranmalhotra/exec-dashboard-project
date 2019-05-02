@@ -28,6 +28,7 @@ import datetime as dt
 csv_file_path = ""
 filename = ""
 line = "=" * 50
+month_name = ""
 
 def getfile():
 	# Get the filepath and data validation on the file: 
@@ -65,6 +66,25 @@ def getfile():
     	if response != "TRUE":
 	    	getfile() # <-- Honestly shocked that I can recursively call the function, that's pretty cool
 
+def parse_date(sample_file,year_var,month_var, month_name_var):
+	f = list(sample_file.upper())
+	year = f[6] + f[7] + f[8] + f[9]
+	year = (int(year))
+	month = f[10] + f[11]
+	month = (int(month))
+	month_name = str
+	year_var = str(year)
+	month_var = int(month)
+	month_name_var = str(month_name)
+
+def parse_year(sample_file):
+	f = list(sample_file.upper())
+	year = f[6] + f[7] + f[8] + f[9]
+	year = (int(year))
+	return year
+
+
+
 # Introduction:
 print(line)
 print("")
@@ -75,12 +95,10 @@ getfile()
 
 # Parse year and month from file name:
 
-f = list(filename.upper())
-year = f[6] + f[7] + f[8] + f[9]
-year = (int(year))
-month = f[10] + f[11]
-month = (int(month))
-month_name = str
+year = parse_year(filename)
+month = ""
+mname = ""
+
 
 def convert_month():
 	global month_name
