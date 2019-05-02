@@ -1,13 +1,56 @@
-# Exec Dashboard Project
+# Exec Dashboard Project [![Build Status](https://travis-ci.com/kmalhotra13/exec-dashboard-project.svg?branch=master)](https://travis-ci.com/kmalhotra13/exec-dashboard-project)
 
 <i><h3>Created by Kuran P. Malhotra</h3></i>
-<i><p>Final submission Feb. 15 2019</p></i>
 
-This project was a great time. I'd recommend ensuring a proper installation of Python on your computer, as it took a while for me to figure out why certain packages weren't running, and it turned out I needed to update python. 
+## Introduction
 
-The project's goal is to provide information on a chosen file and help visualize it. Later iterations will allow for it to incorporate multiple months' worth of data.
+This project's goal is to provide information on a chosen data file and help visualize it. Later iterations will allow for it to incorporate multiple months' worth of data.
 
-the original project to spec is entitled "monthly_sales.py" in this repository
+## Technical Prerequisites
 
-<b>Further Exploration:</b>
-Taking this a step further, I used the pandas package to validate the headers of the CSV. This can be found at "monthly_sales_with_validation.py" within the repository. Also, a dummy CSV file was created with incorrect headers (changing 'date' to 'time') for testing purposes, though this will validate any CSV that does not match the headers necessary. The dummy CSV is 'sales-199501.csv' within the monthly-sales folder of the repository.
+<b>Software Requirements</b>
+- Git
+- Anaconda 3.7
+- Python 3.7
+- Pip
+- Packages listed in `/requirements.txt`
+
+## Installation
+
+In order to set up this applet, please download install the source code:
+
+```sh
+git clone git@github.com:kmalhotra/exec-dashboard-project
+cd exec-dashboard-project/
+```
+
+Install the package dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+## Usage
+
+To use the application, just run the script using the following command:
+
+```sh
+python app/monthly_sales.py
+```
+
+
+From there, you will be prompted to select a datasheet via a pop-up window. The system will generate a report and graph based on that data.
+
+## Testing
+
+From within the virtual environment, install the `pytest` package (first time only):
+
+```sh
+pip install pytest
+```
+
+Run tests:
+
+```sh
+pytest
+```
