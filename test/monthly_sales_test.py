@@ -11,6 +11,14 @@ from tkinter import filedialog
 import os
 import datetime as dt
 
+from app.monthly_sales import (
+	getfile,
+	parse_year,
+	parse_month,
+	convert_month,
+	to_usd
+	)
+
 def test_to_usd():
 	result = to_usd(5200.2)
 	assert result == "$5200.20"
