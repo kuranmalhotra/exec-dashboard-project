@@ -11,3 +11,6 @@ from tkinter import filedialog
 import os
 import datetime as dt
 
+def test_to_usd():
+	result = to_usd(5200.2)
+	assert result == "$5200.20"

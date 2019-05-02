@@ -66,24 +66,50 @@ def getfile():
     	if response != "TRUE":
 	    	getfile() # <-- Honestly shocked that I can recursively call the function, that's pretty cool
 
-def parse_date(sample_file,year_var,month_var, month_name_var):
-	f = list(sample_file.upper())
-	year = f[6] + f[7] + f[8] + f[9]
-	year = (int(year))
-	month = f[10] + f[11]
-	month = (int(month))
-	month_name = str
-	year_var = str(year)
-	month_var = int(month)
-	month_name_var = str(month_name)
-
 def parse_year(sample_file):
 	f = list(sample_file.upper())
 	year = f[6] + f[7] + f[8] + f[9]
 	year = (int(year))
 	return year
 
+def parse_month(sample_file):
+	f = list(sample_file.upper())
+	month = f[10] + f[11]
+	month = (int(month))
+	return month
 
+def convert_month(month_num):
+	global month_name
+	if month_num == 1:
+		month_name = "January"
+	elif month_num == 2:
+		month_name = "February"
+	elif month_num == 3:
+		month_name = "March"
+	elif month_num == 4:
+		month_name = "April"
+	elif month_num == 5:
+		month_name = "May"
+	elif month_num == 6:
+		month_name = "June"
+	elif month_num == 7:
+		month_name = "July"
+	elif month_num == 8:
+		month_name = "August"
+	elif month_num == 9:
+		month_name = "September"
+	elif month_num == 10:
+		month_name = "October"
+	elif month_num == 11:
+		month_name = "November"
+	elif month_num == 12:
+		month_name = "December"
+	return month_name
+
+def to_usd(amount):
+    two_decimal = "{0:.2f}".format(amount)
+    dollar_str = f'${two_decimal}'
+    return dollar_str
 
 # Introduction:
 print(line)
@@ -96,38 +122,9 @@ getfile()
 # Parse year and month from file name:
 
 year = parse_year(filename)
-month = ""
-mname = ""
+month = parse_month_num(filename)
+month_name = convert_month(month)
 
-
-def convert_month():
-	global month_name
-	if month == 1:
-		month_name = "January"
-	elif month == 2:
-		month_name = "February"
-	elif month == 3:
-		month_name = "March"
-	elif month == 4:
-		month_name = "April"
-	elif month == 5:
-		month_name = "May"
-	elif month == 6:
-		month_name = "June"
-	elif month == 7:
-		month_name = "July"
-	elif month == 8:
-		month_name = "August"
-	elif month == 9:
-		month_name = "September"
-	elif month == 10:
-		month_name = "October"
-	elif month == 11:
-		month_name = "November"
-	elif month == 12:
-		month_name = "December"
-
-convert_month()
 
 # Read the file into the script:
 
