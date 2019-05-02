@@ -22,3 +22,7 @@ from app.monthly_sales import (
 def test_to_usd():
 	result = to_usd(5200.2)
 	assert result == "$5200.20"
+
+def test_convert_month():
+	result = convert_month(2)
+	assert result == "February"

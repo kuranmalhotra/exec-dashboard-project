@@ -110,6 +110,7 @@ def to_usd(amount):
     two_decimal = "{0:.2f}".format(amount)
     dollar_str = f'${two_decimal}'
     return dollar_str
+
 if __name__ == '__main__':
 
 	# Introduction:
