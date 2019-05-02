@@ -110,117 +110,118 @@ def to_usd(amount):
     two_decimal = "{0:.2f}".format(amount)
     dollar_str = f'${two_decimal}'
     return dollar_str
+if __name__ == '__main__':
 
-# Introduction:
-print(line)
-print("")
-print("Welcome to the Executive Dashboard. Please follow the prompts.")
-print("")
-print(line)
-getfile()
+	# Introduction:
+	print(line)
+	print("")
+	print("Welcome to the Executive Dashboard. Please follow the prompts.")
+	print("")
+	print(line)
+	getfile()
 
-# Parse year and month from file name:
+	# Parse year and month from file name:
 
-year = parse_year(filename)
-month = parse_month_num(filename)
-month_name = convert_month(month)
-
-
-# Read the file into the script:
-
-data = pds.read_csv(csv_file_path)
-
-products = []
-numProducts = 0
-
-# Create a list of products:
-
-for instance in data["product"]:
-	if instance not in products: 
-		products.append(instance)
-		numProducts = numProducts + 1
-
-# Gather a list of sales totals:
-
-rowPrice = data.groupby(data["product"]).sum()
-rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
-totalPrice = rowPrice["sales price"].sum()
-totalPrice_usd = "{0:,.2f}".format(totalPrice) #<—— Taken from Groceries Exercise
+	year = parse_year(filename)
+	month = parse_month_num(filename)
+	month_name = convert_month(month)
 
 
-print(line)
+	# Read the file into the script:
 
-print("Month: " + str(month_name) + " " + str(year))
-print(line)
+	data = pds.read_csv(csv_file_path)
 
-print("Crunching the data...")
-print(line)
-print("")
-print("Total Monthly Sales: $" + str(totalPrice_usd))
-print("")
-print(line)
-print("Top Sellers: ")
+	products = []
+	numProducts = 0
 
-# Print the list of top sellers by concatenating the product name and price: 
+	# Create a list of products:
 
-number = 0 
-while number < numProducts:
-	price = rowPrice.iloc[number][2]
-	print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
-	number = number + 1
+	for instance in data["product"]:
+		if instance not in products: 
+			products.append(instance)
+			numProducts = numProducts + 1
 
-print(line)
-print("Visualizing the data...")
-print(line)
+	# Gather a list of sales totals:
 
-# Initialize the data for the chart:
-
-products_tuple = tuple(products)
-
-number = 0
-dataPrice =[] 
-while number < numProducts:
-	dataPrice.append(rowPrice.iloc[number][2])
-	number = number + 1
-
-y_pos = np.arange(len(products_tuple))
-
-# Create the chart:
-
-fig, ax = plt.subplots(1,1, figsize=(120,120))
-
-plt.barh(y_pos, dataPrice , align='center', alpha=0.9)
-plt.yticks(y_pos, products_tuple, rotation=30)
-plt.ylabel('Products')
-plt.xlabel('Sales')
-plt.title(str('Top Selling Products: ' + month_name + " " + str(year)), fontsize=30)
-
-ax.plot
+	rowPrice = data.groupby(data["product"]).sum()
+	rowPrice = rowPrice.sort_values(by=["sales price"], ascending=False)
+	totalPrice = rowPrice["sales price"].sum()
+	totalPrice_usd = "{0:,.2f}".format(totalPrice) #<—— Taken from Groceries Exercise
 
 
-# Formatting for the numbers:
+	print(line)
 
-for x, k in enumerate(dataPrice):
-	plt.text(k , x , "   ${0:,.2f}".format(k))
+	print("Month: " + str(month_name) + " " + str(year))
+	print(line)
 
-formatter = ticker.FormatStrFormatter('$%1.2f')
-ax.xaxis.set_major_formatter(formatter)
+	print("Crunching the data...")
+	print(line)
+	print("")
+	print("Total Monthly Sales: $" + str(totalPrice_usd))
+	print("")
+	print(line)
+	print("Top Sellers: ")
 
-# Remove the frame please it was interfering with the labels and I got annoyed with it, oops:
-### Special thanks to my amigos at stack overflow for that one: https://stackoverflow.com/questions/14908576/how-to-remove-frame-from-matplotlib-pyplot-figure-vs-matplotlib-figure-frame
+	# Print the list of top sellers by concatenating the product name and price: 
 
-for spine in plt.gca().spines.values():
-    spine.set_visible(False)
+	number = 0 
+	while number < numProducts:
+		price = rowPrice.iloc[number][2]
+		print(str(number + 1) + ") " + str(rowPrice.index[number]) + " $" + str("{0:,.2f}".format(price)))
+		number = number + 1
 
-# Set the label colors to green:
+	print(line)
+	print("Visualizing the data...")
+	print(line)
 
-for tick in ax.xaxis.get_major_ticks():
-    tick.label.set_color('green')
+	# Initialize the data for the chart:
 
-# Show the final plot:
+	products_tuple = tuple(products)
 
-plt.show()
+	number = 0
+	dataPrice =[] 
+	while number < numProducts:
+		dataPrice.append(rowPrice.iloc[number][2])
+		number = number + 1
 
-### Gracias for everything, this was a fun one! 
+	y_pos = np.arange(len(products_tuple))
+
+	# Create the chart:
+
+	fig, ax = plt.subplots(1,1, figsize=(120,120))
+
+	plt.barh(y_pos, dataPrice , align='center', alpha=0.9)
+	plt.yticks(y_pos, products_tuple, rotation=30)
+	plt.ylabel('Products')
+	plt.xlabel('Sales')
+	plt.title(str('Top Selling Products: ' + month_name + " " + str(year)), fontsize=30)
+
+	ax.plot
+
+
+	# Formatting for the numbers:
+
+	for x, k in enumerate(dataPrice):
+		plt.text(k , x , "   ${0:,.2f}".format(k))
+
+	formatter = ticker.FormatStrFormatter('$%1.2f')
+	ax.xaxis.set_major_formatter(formatter)
+
+	# Remove the frame please it was interfering with the labels and I got annoyed with it, oops:
+	### Special thanks to my amigos at stack overflow for that one: https://stackoverflow.com/questions/14908576/how-to-remove-frame-from-matplotlib-pyplot-figure-vs-matplotlib-figure-frame
+
+	for spine in plt.gca().spines.values():
+	    spine.set_visible(False)
+
+	# Set the label colors to green:
+
+	for tick in ax.xaxis.get_major_ticks():
+	    tick.label.set_color('green')
+
+	# Show the final plot:
+
+	plt.show()
+
+	### Gracias for everything, this was a fun one! 
 
 
