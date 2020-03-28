@@ -24,9 +24,15 @@ def test_to_usd():
 	assert result == "$5200.20"
 
 def test_convert_month():
-	result = convert_month(2)
-	assert result == "February"
-
+	a = convert_month(1)
+	assert a == "January"
+	b = convert_month(4)
+	assert b == "April"
+	c = convert_month(9)
+	assert c == "September"
+	d = convert_month(12)
+	assert d == "December"
+	
 def test_parse_year():
 	result = parse_year("sales-201904")
 	assert result == 2019
